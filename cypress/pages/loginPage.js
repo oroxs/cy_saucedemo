@@ -1,4 +1,6 @@
 // cypress/pages/loginPage.js
+import { LoginPageLocators } from '../locators/loginPageLocators.js';
+
 
 export class LoginPage {
     visit() {
@@ -6,15 +8,15 @@ export class LoginPage {
     }
   
     fillUsername(username) {
-      cy.get('#user-name').type(username);
+      cy.get(LoginPageLocators.usernameInput).type(username);
     }
   
     fillPassword(password) {
-      cy.get('#password').type(password);
+      cy.get(LoginPageLocators.passwordInput).type(password);
     }
   
     clickLogin() {
-      cy.get('#login-button').click();
+      cy.get(LoginPageLocators.loginButton).click();
     }
   
     assertLoggedIn() {

@@ -1,5 +1,4 @@
 // cypress/e2e/login.cy.js
-
 import { LoginPage } from '../pages/loginPage.js';
 
 describe('SauceDemo Login Tests', () => {
