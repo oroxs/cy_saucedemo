@@ -26,7 +26,7 @@ export class CheckoutPage {
     }
 
     getErrorMessage() {
-      return cy.xpath(CheckoutPageLocators.errorMessage);
+      return cy.get(CheckoutPageLocators.errorMessage);
     }
 
     finishCheckout() {

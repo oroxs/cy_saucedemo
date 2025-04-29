@@ -3,6 +3,6 @@ export const CheckoutPageLocators = {
     lastNameInput: '[data-test="lastName"]',
     postalCodeInput: '[data-test="postalCode"]',
     continueButton: '[data-test="continue"]',
-    errorMessage: "//h3[@data-test='error']",
+    errorMessage: '[data-test="error"]',
   };
   
