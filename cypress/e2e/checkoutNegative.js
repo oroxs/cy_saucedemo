@@ -1,7 +1,7 @@
-import { CheckoutPage } from '../pages/checkoutPage.js';
-import { LoginPage } from '../pages/loginPage.js';
-import { InventoryPage, ProductsPage } from '../pages/productsPage.js';
-import { CartPage } from '../pages/cartPage.js';
+import { CheckoutPage } from '../pages/CheckoutPage.js';
+import { LoginPage } from '../pages/LoginPage.js';
+import { InventoryPage, ProductsPage } from '../pages/ProductsPage.js';
+import { CartPage } from '../pages/CartPage.js';
 
 describe('Negative Case - Checkout without filling form', () => {
   const loginPage = new LoginPage();

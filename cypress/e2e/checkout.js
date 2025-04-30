@@ -1,9 +1,9 @@
 // cypress/e2e/checkout.cy.js
 
-import { LoginPage } from '../pages/loginPage.js';
-import { ProductsPage } from '../pages/productsPage.js';
-import { CartPage } from '../pages/cartPage.js';
-import { CheckoutPage } from '../pages/checkoutPage.js';
+import { LoginPage } from '../pages/LoginPage.js';
+import { ProductsPage } from '../pages/ProductsPage.js';
+import { CartPage } from '../pages/CartPage.js';
+import { CheckoutPage } from '../pages/CheckoutPage.js';
 
 
 describe('SauceDemo Checkout Flow', () => {
