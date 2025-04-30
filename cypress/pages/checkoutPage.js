@@ -3,10 +3,10 @@ import { CheckoutPageLocators } from '../locators/checkoutPageLocators.js';
 
 export class CheckoutPage {
     fillCheckoutInformation(firstName, lastName, postalCode) {
-      cy.get('[data-test="firstName"]').type(firstName);
-      cy.get('[data-test="lastName"]').type(lastName);
-      cy.get('[data-test="postalCode"]').type(postalCode);
-      cy.get('[data-test="continue"]').click();
+      cy.get(CheckoutPageLocators.firstNameInput).type(firstName);
+      cy.get(CheckoutPageLocators.lastNameInput).type(lastName);
+      cy.get(CheckoutPageLocators.postalCodeInput).type(postalCode);
+      cy.get(CheckoutPageLocators.continueButton).click();
     }
   
     fillFirstName(firstName) {

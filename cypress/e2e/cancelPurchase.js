@@ -6,21 +6,29 @@ import { CheckoutOverviewPage } from '../pages/CheckoutOverviewPage';
 
 describe('Cancel Purchase & Validate Bill', () => {
   const loginPage = new LoginPage();
-  const inventoryPage = new ProductsPage();
+  const productsPage = new ProductsPage();
   const cartPage = new CartPage();
   const checkoutPage = new CheckoutPage();
   const overviewPage = new CheckoutOverviewPage();
+  let users;
+
+  
+  before(() => {
+    cy.fixture('users').then((data) => {
+      users = data;
+    });
+  });
 
   beforeEach(() => {
-    cy.visit('https://www.saucedemo.com/');
-    loginPage.fillUsername('standard_user');
-    loginPage.fillPassword('secret_sauce');
+    cy.visit('/');
+    loginPage.fillUsername(users.standardUser.username);
+    loginPage.fillPassword(users.standardUser.password);
     loginPage.clickLogin();
 
     // Add multiple items
-    inventoryPage.addToCart('Sauce Labs Backpack');
-    inventoryPage.addToCart('Sauce Labs Bike Light');
-    inventoryPage.goToCart();
+    productsPage.addToCart('Sauce Labs Backpack');
+    productsPage.addToCart('Sauce Labs Bike Light');
+    productsPage.goToCart();
 
     cartPage.proceedToCheckout();
 

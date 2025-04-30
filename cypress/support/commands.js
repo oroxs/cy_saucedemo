@@ -23,3 +23,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('calculateItemTotal', () => {
+    let total = 0;
+    return cy.get('.inventory_item_price').each(($el) => {
+      const price = parseFloat($el.text().replace('$', ''));
+      total += price;
+    }).then(() => total);
+  });
+  
