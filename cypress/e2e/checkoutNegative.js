@@ -9,11 +9,16 @@ describe('Negative Case - Checkout without filling form', () => {
   const cartPage = new CartPage();
   const checkoutPage = new CheckoutPage();
   let users;
+  let products;
 
   
   before(() => {
     cy.fixture('users').then((data) => {
       users = data;
+    });
+
+    cy.fixture('products').then((data) => {
+      products = data;
     });
   });
 
@@ -23,7 +28,7 @@ describe('Negative Case - Checkout without filling form', () => {
     loginPage.fillPassword(users.standardUser.password);
     loginPage.clickLogin();
 
-    productsPage.addToCart('Sauce Labs Backpack');
+    productsPage.addToCart(products.backpack);
     productsPage.goToCart();
     cartPage.proceedToCheckout();
   });

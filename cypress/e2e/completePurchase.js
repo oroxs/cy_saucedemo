@@ -1,5 +1,5 @@
 import { LoginPage } from '../pages/LoginPage';
-import { InventoryPage, ProductsPage } from '../pages/ProductsPage';
+import {ProductsPage } from '../pages/ProductsPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 import { validateBill } from '../support/helpers/validateBill';
@@ -10,11 +10,16 @@ describe('Complete Purchase and Verify Confirmation', () => {
   const cartPage = new CartPage();
   const checkoutPage = new CheckoutPage();
   let users;
+  let products;
 
   
   before(() => {
     cy.fixture('users').then((data) => {
       users = data;
+    });
+
+    cy.fixture('products').then((data) => {
+      products = data;
     });
   });
 
@@ -24,8 +29,8 @@ describe('Complete Purchase and Verify Confirmation', () => {
     loginPage.fillPassword(users.standardUser.password);
     loginPage.clickLogin();
 
-    productsPage.addToCart('Sauce Labs Backpack');
-    productsPage.addToCart('Sauce Labs Bike Light');
+    productsPage.addToCart(products.backpack);
+    productsPage.addToCart(products.bikeLight);
     productsPage.goToCart();
     cartPage.proceedToCheckout();
 
